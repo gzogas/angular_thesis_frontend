@@ -1,0 +1,9 @@
+<div>
+  <h1>Home</h1>
+  <app-register></app-register>
+  <ul *ngIf="users">
+    <li *ngFor="let user of users">
+      <h5>{{ user.name }} {{ user.username }} </h5>
+    </li>
+  </ul>
+</div>

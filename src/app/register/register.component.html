@@ -1,0 +1,59 @@
+<h1>Register</h1>
+
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+  <h5 *ngIf="success">Your form is valid</h5>
+
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+    <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+      <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+    </div>
+  </label>
+
+  <label>
+      Surname:
+      <input type="text" formControlName="surname">
+      <div *ngIf="submitted && messageForm.controls.surname.errors" class="error">
+        <div *ngIf="messageForm.controls.surname.errors.required">Your surname is required</div>
+      </div>
+    </label>
+
+    <label>
+        Email:
+        <input type="email" formControlName="email">
+        <div *ngIf="submitted && messageForm.controls.email.errors" class="error">
+            <div *ngIf="messageForm.controls.email.errors.required">Email is required</div>
+          <div *ngIf="messageForm.controls.email.errors.email">Input must be an email</div>
+        </div>
+      </label>
+
+    <label>
+        Password:
+        <input type="password" formControlName="password">
+        <div *ngIf="submitted && messageForm.controls.password.errors" class="error">
+          <div *ngIf="messageForm.controls.password.errors.required">Password is required</div>
+        </div>
+      </label>
+
+  
+
+    <input type="submit" value="Send message" class="cta">
+</form>
+
+<div *ngIf="submitted" class="results">
+
+  <strong>Name:</strong>
+  <span>{{ messageForm.controls.name.value }}</span>
+
+  <strong>Surname:</strong>
+  <span>{{ messageForm.controls.surname.value }}</span>
+
+  <strong>Email:</strong>
+  <span>{{ messageForm.controls.email.value }}</span>
+
+  <strong>Password:</strong>
+  <span>{{ messageForm.controls.password.value }}</span>
+
+</div>
