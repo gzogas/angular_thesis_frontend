@@ -44,7 +44,7 @@ let user = {
   "password": password
 }
 
-    this.data.registerUser(user);
+    this.data.registerUser(user).subscribe();
   }
 
   ngOnInit() {
